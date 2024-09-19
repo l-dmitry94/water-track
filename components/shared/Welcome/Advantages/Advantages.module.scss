@@ -1,0 +1,19 @@
+.advantagesSection {
+    @apply relative;
+}
+
+.imageWrapper {
+    @apply relative h-[353px] overflow-hidden rounded-30;
+}
+
+.image {
+    @apply object-cover;
+}
+
+.customers {
+    @apply absolute left-4 bottom-24 rounded-30 bg-white flex items-center gap-1;
+}
+
+.customersList {
+    @apply flex;
+}

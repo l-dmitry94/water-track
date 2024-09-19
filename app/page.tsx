@@ -1,5 +1,7 @@
-const HomePage = () => {
-    return <div></div>;
+import Welcome from '@/components/shared/Welcome';
+
+const WelcomePage = () => {
+    return <Welcome />;
 };
 
-export default HomePage;
+export default WelcomePage;

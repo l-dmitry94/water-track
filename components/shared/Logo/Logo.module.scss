@@ -1,0 +1,15 @@
+.logo {
+    @apply rounded-30 px-4 pt-6;
+
+    &.gray {
+        @apply bg-gray;
+    }
+
+    &.green {
+        @apply bg-green;
+    }
+}
+
+.logoText {
+    @apply text-lg font-bold uppercase leading-[1.11];
+}

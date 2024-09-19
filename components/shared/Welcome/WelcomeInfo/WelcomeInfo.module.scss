@@ -1,0 +1,15 @@
+.section {
+    @apply pb-16 pt-20;
+}
+
+.text {
+    @apply mb-4 leading-[1.29] tracking-[0.06em] text-secondary;
+}
+
+.title {
+    @apply text-[2.375rem] font-bold leading-none tracking-tight mb-8;
+}
+
+.linksGroup {
+    @apply flex gap-3;
+}
