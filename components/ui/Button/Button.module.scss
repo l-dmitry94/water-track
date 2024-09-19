@@ -1,0 +1,23 @@
+.button {
+    @apply flex items-center rounded-30 px-5 py-4 font-bold leading-[1.29] tracking-tight transition-colors duration-150 ease-linear;
+
+    &.contained {
+        @apply bg-green;
+
+        &:is(:hover, :focus) {
+            @apply bg-green-dark;
+        }
+    }
+
+    &.outlined {
+        @apply border border-primary px-7;
+
+        &:is(:hover, :focus) {
+            @apply border-green-dark text-green-dark;
+        }
+    }
+
+    &.fullWidth {
+        @apply w-full;
+    }
+}
