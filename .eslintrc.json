@@ -1,0 +1,25 @@
+{
+    "root": true,
+    "env": { "browser": true, "es2020": true },
+    "extends": [
+        "next/core-web-vitals",
+        "next/typescript",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:prettier/recommended",
+        "prettier"
+    ],
+    "ignorePatterns": ["dist", ".eslintrc.cjs"],
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["react-refresh"],
+    "rules": {
+        "max-lines": ["warn", { "max": 80, "skipComments": true, "skipBlankLines": true }],
+        "prettier/prettier": [
+            "warn",
+            {
+                "endOfLine": "auto"
+            }
+        ],
+        "@typescript-eslint/no-explicit-any": "off"
+    }
+}
