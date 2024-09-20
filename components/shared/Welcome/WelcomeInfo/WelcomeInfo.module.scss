@@ -1,15 +1,41 @@
+@import 'styles/mixins';
+
 .section {
     @apply pb-16 pt-20;
+
+    @include media-rules(tablet) {
+        @apply px-8 py-12;
+    }
+
+    @include media-rules(desktop) {
+        @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-0;
+    }
 }
 
 .text {
     @apply mb-4 leading-[1.29] tracking-[0.06em] text-secondary;
+
+    @include media-rules(tablet) {
+        @apply text-base leading-normal;
+    }
 }
 
 .title {
-    @apply text-[2.375rem] font-bold leading-none tracking-tight mb-8;
+    @apply mb-8 text-[2.375rem] font-bold leading-none tracking-tight;
+
+    @include media-rules(tablet) {
+        @apply text-[4rem];
+    }
+
+    @include media-rules(desktop) {
+        @apply text-[5rem] leading-[0.95];
+    }
 }
 
 .linksGroup {
     @apply flex gap-3;
+
+    @include media-rules(tablet) {
+        @apply gap-4;
+    }
 }

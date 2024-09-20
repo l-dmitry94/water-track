@@ -1,9 +1,23 @@
+@import 'styles/mixins';
+
 .advantagesSection {
     @apply relative;
+
+    @include media-rules(desktop) {
+        @apply h-full w-1/2;
+    }
 }
 
 .imageWrapper {
     @apply relative h-[353px] overflow-hidden rounded-30;
+
+    @include media-rules(tablet) {
+        @apply h-[446px];
+    }
+
+    @include media-rules(desktop) {
+        @apply h-full;
+    }
 }
 
 .image {
@@ -11,9 +25,85 @@
 }
 
 .customers {
-    @apply absolute left-4 bottom-24 rounded-30 bg-white flex items-center gap-1;
+    @apply absolute bottom-24 left-4 flex items-center gap-1 rounded-30 bg-white px-4 py-2;
+
+    @include media-rules(tablet) {
+        @apply left-8 px-5 py-3;
+    }
+
+    @include media-rules(desktop) {
+        @apply bottom-32;
+    }
 }
 
 .customersList {
-    @apply flex;
+    @apply flex flex-row-reverse;
+}
+
+.customer {
+    @apply relative -ml-2 flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-green;
+
+    @include media-rules(tablet) {
+        @apply -ml-5 h-12 w-12;
+    }
+
+    &:last-child {
+        @apply ml-0;
+    }
+}
+
+.customersText {
+    @apply max-w-[68px] text-xs font-bold leading-[1.17];
+
+    @include media-rules(tablet) {
+        @apply max-w-[90px] text-base leading-[1.49];
+    }
+
+    &Color {
+        @apply text-green;
+    }
+}
+
+.advantages {
+    @apply absolute bottom-8 right-8;
+
+    @include media-rules(tablet) {
+        @apply bottom-5 right-8;
+    }
+
+    @include media-rules(desktop) {
+        @apply bottom-16 right-8;
+    }
+}
+
+.advantagesList {
+    @apply flex max-w-[168px] flex-wrap items-center gap-1;
+
+    @include media-rules(tablet) {
+        @apply max-w-[270px] gap-3;
+    }
+}
+
+.advantagesListItem {
+    @apply rounded-30 px-3 py-2 text-[0.5rem] font-bold leading-none tracking-tight;
+
+    @include media-rules(tablet) {
+        @apply px-4 py-3 text-sm;
+    }
+
+    &:first-child {
+        @apply flex items-center gap-1 bg-primary text-white;
+
+        &::before {
+            @apply block h-2 w-2 rounded-full bg-green content-[''];
+        }
+    }
+
+    &:nth-child(2) {
+        @apply bg-green;
+    }
+
+    &:last-child {
+        @apply bg-white;
+    }
 }

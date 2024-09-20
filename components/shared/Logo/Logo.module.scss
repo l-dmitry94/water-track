@@ -1,5 +1,15 @@
+@import 'styles/mixins';
+
 .logo {
-    @apply rounded-30 px-4 pt-6;
+    @apply relative rounded-30 px-4 pt-6;
+
+    @include media-rules(tablet) {
+        @apply px-8 pt-8;
+    }
+
+    @include media-rules(desktop) {
+        @apply w-1/2;
+    }
 
     &.gray {
         @apply bg-gray;
@@ -12,4 +22,8 @@
 
 .logoText {
     @apply text-lg font-bold uppercase leading-[1.11];
+
+    @include media-rules(tablet) {
+        @apply text-2xl leading-none;
+    }
 }

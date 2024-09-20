@@ -19,7 +19,9 @@ const Advantages = () => {
             <section className={scss.customers}>
                 <ul className={scss.customersList}>
                     {customers.map((customer) => (
-                        <li key={customer.id}>{customer.name}</li>
+                        <li key={customer.id} className={scss.customer}>
+                            {customer.name}
+                        </li>
                     ))}
                 </ul>
                 <p className={scss.customersText}>
