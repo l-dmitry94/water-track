@@ -1,3 +1,19 @@
+@import 'styles/mixins';
+
+.welcome {
+    @include media-rules(desktop) {
+        @apply h-[100dvh];
+    }
+}
+
 .wrapper {
     @apply flex flex-col gap-4;
+
+    @include media-rules(desktop) {
+        @apply h-full flex-row gap-8;
+    }
+}
+
+.container {
+    @apply h-full;
 }
