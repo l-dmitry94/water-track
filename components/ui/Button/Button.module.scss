@@ -1,7 +1,7 @@
 @import 'styles/mixins';
 
 .button {
-    @apply flex items-center rounded-30 px-5 py-4 font-bold leading-[1.29] tracking-tight transition-colors duration-150 ease-linear;
+    @apply flex items-center justify-center rounded-30 px-5 py-4 font-bold leading-[1.29] tracking-tight transition-colors duration-150 ease-linear;
 
     @include media-rules(tablet) {
         @apply px-10 py-[1.125rem] text-base leading-normal;

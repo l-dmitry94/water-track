@@ -5,6 +5,7 @@ import scss from './Button.module.scss';
 
 interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
+    type?: 'button' | 'submit' | 'reset';
     variant?: 'contained' | 'outlined' | 'text';
     href?: string;
     fullWidth?: boolean;

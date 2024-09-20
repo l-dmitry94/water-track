@@ -18,6 +18,10 @@
     &.green {
         @apply bg-green;
     }
+
+    &.fullHeight {
+        @apply h-full;
+    }
 }
 
 .logoText {

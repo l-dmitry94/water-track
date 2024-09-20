@@ -6,6 +6,14 @@
     @include media-rules(desktop) {
         @apply h-full w-1/2;
     }
+
+    &.auth {
+        @apply hidden;
+
+        @include media-rules(desktop) {
+            @apply block;
+        }
+    }
 }
 
 .imageWrapper {

@@ -1,0 +1,49 @@
+@import 'styles/mixins';
+
+.wrapper {
+    @apply relative;
+}
+
+.label {
+    @apply mb-2 block font-bold leading-[1.29] tracking-tight text-secondary;
+
+    @include media-rules(tablet) {
+        @apply text-base leading-normal;
+    }
+}
+
+.inputWrapper {
+    @apply relative;
+}
+
+.input {
+    @apply h-12 w-full rounded-15 border border-secondary/20 bg-transparent px-4 leading-normal tracking-tight text-secondary outline-none transition-colors duration-150 ease-linear;
+
+    @include media-rules(tablet) {
+        @apply text-base h-14;
+    }
+
+    &:focus {
+        @apply border-secondary/40;
+    }
+
+    &.errorInput {
+        @apply border-red;
+    }
+}
+
+.passwordButton {
+    @apply absolute right-4 top-1/2 -translate-y-1/2 outline-none;
+
+    & .passwordIcon {
+        @apply h-5 w-5 fill-none stroke-secondary;
+    }
+}
+
+.error {
+    @apply text-red absolute -bottom-5 right-0 text-xs;
+
+    @include media-rules(tablet) {
+        @apply text-sm;
+    }
+}

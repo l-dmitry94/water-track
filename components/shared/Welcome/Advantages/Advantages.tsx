@@ -2,16 +2,23 @@ import Image from 'next/image';
 import { advantages } from '@/public/images';
 import customers from './customers.json';
 import scss from './Advantages.module.scss';
+import { FC } from 'react';
+import clsx from 'clsx';
 
-const Advantages = () => {
+interface IAdvantages {
+    auth?: boolean;
+}
+
+const Advantages: FC<IAdvantages> = ({ auth = false }) => {
     return (
-        <section className={scss.advantagesSection}>
+        <section className={clsx(scss.advantagesSection, auth && scss.auth)}>
             <div className={scss.imageWrapper}>
                 <Image
                     src={advantages}
                     fill
                     alt="advantages image"
                     priority
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className={scss.image}
                 />
             </div>

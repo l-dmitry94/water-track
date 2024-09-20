@@ -12,6 +12,7 @@ const config: Config = {
                     dark: '#87d28d',
                 },
                 gray: '#f0Eff4',
+                red: '#ef5050',
             },
 
             letterSpacing: {
