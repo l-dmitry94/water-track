@@ -1,0 +1,22 @@
+@import 'styles/mixins';
+
+.inputsWrapper {
+    @apply mb-8 flex flex-col gap-4;
+
+    @include media-rules(tablet) {
+        @apply gap-5;
+    }
+}
+
+.text {
+    @apply mt-4 text-center leading-[1.29] tracking-tight text-secondary/50;
+
+    @include media-rules(tablet) {
+        @apply text-base leading-normal;
+    }
+
+    & .link {
+        @apply font-bold text-secondary underline;
+        text-decoration-skip-ink: none;
+    }
+}

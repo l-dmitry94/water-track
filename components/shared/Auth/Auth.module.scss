@@ -1,0 +1,33 @@
+@import 'styles/mixins';
+
+.auth {
+    @apply h-[100dvh];
+}
+
+.container {
+    @apply h-full;
+}
+
+.wrapper {
+    @apply h-full;
+
+    @include media-rules(desktop) {
+        @apply flex gap-8;
+    }
+}
+
+.content {
+    @apply absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 px-4;
+
+    @include media-rules(tablet) {
+        @apply max-w-[436px];
+    }
+}
+
+.title {
+    @apply mb-8 text-[2rem] font-bold leading-none tracking-tight;
+
+    @include media-rules(tablet) {
+        @apply text-4xl leading-[1.06];
+    }
+}
