@@ -1,16 +1,15 @@
 import { redirect } from 'next/navigation';
 import { getServerSession } from 'next-auth';
-import Welcome from '@/components/shared/Welcome';
 import authOptions from '@/configs/next-auth';
+import Tracker from '@/components/shared/Tracker';
 
-const WelcomePage = async () => {
+const TrackerPage = async () => {
     const session = await getServerSession(authOptions);
 
-    if (session) {
-        redirect('/tracker');
+    if (!session) {
+        redirect('/signin');
     }
-
-    return <Welcome />;
+    return <Tracker />;
 };
 
-export default WelcomePage;
+export default TrackerPage;
