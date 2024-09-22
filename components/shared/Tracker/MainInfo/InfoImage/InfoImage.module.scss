@@ -1,0 +1,17 @@
+@import 'styles/mixins';
+
+.imageWrapper {
+    @apply relative mx-auto h-[335px] w-[262px];
+
+    @include media-rules(tablet) {
+        @apply w-[374px] h-[477px];
+    }
+
+    @include media-rules(desktop) {
+        @apply w-[472px] h-[604px];
+    }
+}
+
+.image {
+    @apply object-cover
+}

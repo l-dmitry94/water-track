@@ -1,0 +1,19 @@
+@import 'styles/mixins';
+
+.mainInfo {
+    @include media-rules(desktop) {
+        @apply w-1/2
+    }
+}
+
+.logo {
+    @apply w-full
+}
+
+.content {
+    @apply relative pt-2 pb-8;
+
+    @include media-rules(tablet) {
+        @apply pt-3 pb-8;
+    }
+}

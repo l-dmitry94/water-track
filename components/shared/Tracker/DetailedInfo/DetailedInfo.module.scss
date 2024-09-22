@@ -1,8 +1,7 @@
 @import 'styles/mixins';
 
-.wrapper {
-
+.detailedInfo {
     @include media-rules(desktop) {
-        @apply flex gap-8;
+        @apply w-1/2
     }
 }
