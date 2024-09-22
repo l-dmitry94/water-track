@@ -32,7 +32,7 @@ const Button: FC<IButton> = ({
     }
     return (
         <button
-            className={clsx(scss.button, scss[variant], fullWidth && scss.fullWidth)}
+            className={clsx(scss.button, scss[variant], fullWidth && scss.fullWidth, className)}
             {...props}
         >
             {children}

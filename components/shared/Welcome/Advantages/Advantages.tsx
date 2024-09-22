@@ -1,9 +1,9 @@
-import Image from 'next/image';
-import { advantages } from '@/public/images';
-import customers from './customers.json';
-import scss from './Advantages.module.scss';
 import { FC } from 'react';
+import Image from 'next/image';
 import clsx from 'clsx';
+import { advantages } from '@/public/images';
+import customers from '@/data/customers.json';
+import scss from './Advantages.module.scss';
 
 interface IAdvantages {
     auth?: boolean;

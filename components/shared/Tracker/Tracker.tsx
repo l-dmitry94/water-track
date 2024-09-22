@@ -1,12 +1,19 @@
-'use client';
-
-import { useSession } from 'next-auth/react';
+import Container from '@/components/ui/Container';
+import scss from './Tracker.module.scss';
+import MainInfo from './MainInfo';
+import DetailedInfo from './DetailedInfo';
 
 const Tracker = () => {
-    const session = useSession();
-    console.log(session);
-
-    return <div>Tracker</div>;
+    return (
+        <section className={scss.tracker}>
+            <Container>
+                <div className={scss.wrapper}>
+                    <MainInfo />
+                    <DetailedInfo />
+                </div>
+            </Container>
+        </section>
+    );
 };
 
 export default Tracker;

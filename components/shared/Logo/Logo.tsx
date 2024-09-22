@@ -6,11 +6,14 @@ interface ILogo {
     children: ReactNode;
     variant?: 'gray' | 'green';
     fullHeight?: boolean;
+    className?: string;
 }
 
-const Logo: FC<ILogo> = ({ children, fullHeight, variant = 'gray' }) => {
+const Logo: FC<ILogo> = ({ children, fullHeight, variant = 'gray', className }) => {
     return (
-        <section className={clsx(scss.logo, scss[variant], fullHeight && scss.fullHeight)}>
+        <section
+            className={clsx(scss.logo, scss[variant], fullHeight && scss.fullHeight, className)}
+        >
             <p className={scss.logoText}>WaterTrack</p>
             {children}
         </section>
