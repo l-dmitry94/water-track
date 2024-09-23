@@ -1,7 +1,9 @@
 @import 'styles/mixins';
 
 .detailedInfo {
+    @apply bg-gray py-10 rounded-30;
+
     @include media-rules(desktop) {
-        @apply w-1/2
+        @apply w-1/2;
     }
 }

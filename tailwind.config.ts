@@ -11,7 +11,10 @@ const config: Config = {
                     DEFAULT: '#9be1a0',
                     dark: '#87d28d',
                 },
-                gray: '#f0Eff4',
+                gray: {
+                    DEFAULT: '#f0Eff4',
+                    dark: '#323F47',
+                },
                 red: '#ef5050',
             },
 
