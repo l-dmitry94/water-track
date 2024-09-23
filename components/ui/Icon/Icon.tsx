@@ -3,7 +3,7 @@ import scss from './Icon.module.scss';
 import { FC } from 'react';
 
 type IconVariant =
-    | 'chevron-up'
+    | 'chevron-down'
     | 'close'
     | 'control-minus'
     | 'control-plus'
@@ -15,7 +15,8 @@ type IconVariant =
     | 'plus'
     | 'settings'
     | 'trash'
-    | 'upload';
+    | 'upload'
+    | 'user';
 
 interface IIcon {
     variant: IconVariant;

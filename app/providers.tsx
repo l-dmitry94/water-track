@@ -14,7 +14,7 @@ interface IProviders {
 const Providers: FC<IProviders> = ({ children }) => {
     return (
         <SessionProvider>
-            <SkeletonTheme baseColor="#f0eff4" highlightColor="#9be1a0">
+            <SkeletonTheme baseColor="#aaaaaa" highlightColor="#9be1a0">
                 {children}
             </SkeletonTheme>
 

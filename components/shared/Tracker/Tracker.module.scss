@@ -1,8 +1,9 @@
 @import 'styles/mixins';
 
 .wrapper {
+    @apply flex flex-col gap-4;
 
     @include media-rules(desktop) {
-        @apply flex gap-8;
+        @apply flex-row gap-8;
     }
 }

@@ -1,0 +1,29 @@
+@import 'styles/mixins';
+
+.section {
+    @apply mb-5 leading-none;
+
+    @include media-rules(tablet) {
+        @apply mb-0;
+    }
+}
+
+.title {
+    @apply text-[2rem] leading-none tracking-tight;
+
+    @include media-rules(tablet) {
+        @apply text-4xl leading-[1.06];
+    }
+
+    & .name {
+        @apply font-bold;
+    }
+}
+
+.titleSkeleton {
+    @apply h-8 w-[185px];
+
+    @include media-rules(tablet) {
+        @apply h-[2.375rem] w-[208px];
+    }
+}
