@@ -1,0 +1,19 @@
+@import 'styles/mixins';
+
+.simpleBar {
+    @apply select-none;
+    
+    :global {
+        .simplebar-track.simplebar-horizontal {
+            @apply h-2 pointer-events-auto overflow-visible bg-white -bottom-6 left-0 right-5 rounded-lg ;
+
+            @include media-rules(tablet) {
+                @apply right-0;
+            }
+        }
+
+        .simplebar-scrollbar:before {
+            @apply bg-primary opacity-100 h-full top-0 left-0 right-0 bottom-0 cursor-pointer;
+        }
+    }
+}

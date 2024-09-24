@@ -1,7 +1,7 @@
 import Container from '@/components/ui/Container';
-import scss from './Tracker.module.scss';
 import MainInfo from './MainInfo';
 import DetailedInfo from './DetailedInfo';
+import scss from './Tracker.module.scss';
 
 const Tracker = () => {
     return (

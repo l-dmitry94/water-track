@@ -16,7 +16,8 @@ type IconVariant =
     | 'settings'
     | 'trash'
     | 'upload'
-    | 'user';
+    | 'user'
+    | 'water-glass';
 
 interface IIcon {
     variant: IconVariant;

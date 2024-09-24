@@ -23,6 +23,10 @@
         }
     }
 
+    &.text {
+        @apply px-0 text-base leading-normal;
+    }
+
     &.fullWidth {
         @apply w-full;
     }

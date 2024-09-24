@@ -1,0 +1,61 @@
+@import 'styles/mixins';
+
+.waterItem {
+    @apply flex shrink-0 items-center gap-[0.625rem] rounded-15 bg-white px-[0.875rem] py-[1.125rem];
+
+    @include media-rules(tablet) {
+        @apply w-[calc((100%-64px)/3)] p-5 gap-5;
+    }
+
+    @include media-rules(desktop) {
+        @apply w-[calc((100%-32px)/3)];
+    }
+
+    & .waterIcon {
+        @apply h-[2.375rem] w-[2.375rem] fill-green;
+
+        @include media-rules(tablet) {
+            @apply h-11 w-11;
+        }
+    }
+}
+
+.info {
+    @apply flex flex-col gap-[0.375rem];
+
+    @include media-rules(tablet) {
+        @apply gap-0;
+    }
+}
+
+.volume {
+    @apply font-bold leading-none text-nowrap;
+
+    @include media-rules(tablet) {
+        @apply text-[15px] leading-[1.49];
+    }
+}
+
+.time {
+    @apply text-xs leading-none text-secondary/60;
+
+    @include media-rules(tablet) {
+        @apply leading-[1.87];
+    }
+}
+
+.controls {
+    @apply flex flex-col gap-2;
+
+    @include media-rules(tablet) {
+        @apply gap-3;
+    }
+
+    & .controlIcon {
+        @apply h-[0.875rem] w-[0.875rem] fill-none stroke-primary transition-colors duration-150 ease-linear;
+
+        &:is(:hover, :focus) {
+            @apply stroke-green;
+        }
+    }
+}

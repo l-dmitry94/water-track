@@ -1,0 +1,29 @@
+@import 'styles/mixins';
+
+.waterSection {
+    @apply pl-5;
+
+    @include media-rules(tablet) {
+        @apply px-8;
+    }
+}
+
+.scroll {
+    @apply max-w-[343px];
+
+    @include media-rules(tablet) {
+        @apply max-w-full;
+    }
+}
+
+.waterList {
+    @apply flex gap-2 ;
+
+    @include media-rules(tablet) {
+        @apply gap-8;
+    }
+
+    @include media-rules(desktop) {
+        @apply gap-4;
+    }
+}
