@@ -1,7 +1,7 @@
 @import 'styles/mixins';
 
 .userPanel {
-    @apply px-5 leading-none;
+    @apply px-5 leading-none mb-10;
 
     @include media-rules(tablet) {
         @apply flex items-center justify-between px-8;

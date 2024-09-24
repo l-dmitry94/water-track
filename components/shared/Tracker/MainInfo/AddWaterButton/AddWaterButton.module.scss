@@ -5,13 +5,17 @@
         @apply absolute bottom-8 right-0 gap-2 bg-primary px-5 py-4 text-white;
 
         &:is(:hover, :focus) {
-            @apply bg-secondary;
+            @apply bg-primary text-green;
+
+            & .icon {
+                @apply stroke-green;
+            }
         }
     }
 }
 
 .icon {
-    @apply h-4 w-4 fill-none stroke-white;
+    @apply h-4 w-4 fill-none stroke-white transition-colors duration-150 ease-linear;
 
     @include media-rules(tablet) {
         @apply h-6 w-6;

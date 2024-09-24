@@ -1,0 +1,19 @@
+.button {
+    @apply flex items-center gap-2;
+
+    &:is(:hover, :focus) .iconWrapper {
+        @apply bg-primary;
+
+        & .iconPlus {
+            @apply stroke-white;
+        }
+    }
+}
+
+.iconWrapper {
+    @apply flex h-[1.875rem] w-[1.875rem] items-center justify-center rounded-full bg-green transition-colors duration-150 ease-linear;
+
+    & .iconPlus {
+        @apply h-4 w-4 stroke-primary transition-colors duration-150 ease-linear;
+    }
+}

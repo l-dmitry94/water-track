@@ -1,0 +1,9 @@
+@import 'styles/mixins';
+
+.wrapper {
+    @apply px-5 flex items-center justify-between mb-6;
+
+    @include media-rules(tablet) {
+        @apply px-8;
+    }
+}
