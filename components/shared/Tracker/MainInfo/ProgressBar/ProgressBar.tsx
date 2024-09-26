@@ -1,13 +1,15 @@
 'use client';
 
-import waters from '@/data/waters.json';
+// import waters from '@/data/waters.json';
 import scss from './ProgressBar.module.scss';
 import { useSession } from 'next-auth/react';
 import clsx from 'clsx';
 import Skeleton from 'react-loading-skeleton';
+import useWaters from '@/store/useWaters';
 
 const ProgressBar = () => {
     const { data: session } = useSession();
+    const waters = useWaters((state) => state.waters);
 
     const total = waters.reduce((acc, water) => acc + water.volume, 0);
 

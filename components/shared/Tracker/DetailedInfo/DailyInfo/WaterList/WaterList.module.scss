@@ -8,6 +8,10 @@
     }
 }
 
+.skeleton {
+    @apply overflow-hidden;
+}
+
 .scroll {
     @apply max-w-[343px];
 

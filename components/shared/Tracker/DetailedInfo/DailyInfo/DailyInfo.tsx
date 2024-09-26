@@ -1,7 +1,7 @@
 import AddWaterBtn from './AddWaterBtn';
 import ChooseDate from './ChooseDate';
-import scss from './DailyInfo.module.scss';
 import WaterList from './WaterList';
+import scss from './DailyInfo.module.scss';
 
 const DailyInfo = () => {
     return (

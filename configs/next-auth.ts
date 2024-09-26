@@ -30,6 +30,7 @@ const authOptions: AuthOptions = {
     callbacks: {
         async jwt({ token, user }) {
             if (user) {
+                token.id = user.id;
                 token.weight = user.weight;
                 token.activeTime = user.activeTime;
                 token.volume = user.volume;
@@ -50,6 +51,7 @@ const authOptions: AuthOptions = {
                 throw new Error('User not found');
             }
 
+            session.user.id = user.id;
             session.user.weight = user.weight;
             session.user.activeTime = user.activeTime;
             session.user.volume = user.volume;
