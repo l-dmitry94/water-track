@@ -4,10 +4,10 @@ const ENDPOINTS = {
     },
 
     waters: {
-        create: 'water/create',
-        getDailyWaters: 'water/daily',
-        getWeeklyWaters: 'water/weekly',
-        getMonthlyWaters: 'water/monthly',
+        create: '/api/water/create',
+        getDailyWaters: '/api/water/daily',
+        getWeeklyWaters: '/api/water/weekly',
+        getMonthlyWaters: '/api/water/monthly',
     },
 };
 
