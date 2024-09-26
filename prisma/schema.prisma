@@ -53,6 +53,7 @@ model User {
   activeTime    Int       @default(0) @map("active_time")
   volume        Int       @default(1800)
   gender        Gender    @default(woman)
+  water         Water[]
   accounts      Account[]
   sessions      Session[]
 
@@ -67,4 +68,16 @@ model VerificationToken {
 
   @@unique([identifier, token])
   @@map("verificationtokens")
+}
+
+model Water {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @db.ObjectId
+  volume Int
+  time   String
+  date   String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("waters")
 }
