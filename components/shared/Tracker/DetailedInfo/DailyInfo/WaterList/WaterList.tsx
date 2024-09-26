@@ -13,7 +13,7 @@ const WaterList = () => {
     const getDailyWaters = useWaters((state) => state.getDailyWaters);
 
     useEffect(() => {
-        getDailyWaters(new Date().toISOString());
+        getDailyWaters(new Date().toISOString().split('T')[0]);
     }, [getDailyWaters]);
 
     return (
