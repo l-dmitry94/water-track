@@ -16,11 +16,12 @@ const WaterList = () => {
         getDailyWaters(new Date().toISOString());
     }, [getDailyWaters]);
 
-    console.log(waters);
     return (
         <section className={scss.waterSection}>
             {isLoading ? (
-                <SkeletionWaterList />
+                <div className={scss.skeleton}>
+                    <SkeletionWaterList />
+                </div>
             ) : (
                 <ScrollBar className={scss.scroll}>
                     <div className={scss.waterList}>

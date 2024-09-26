@@ -1,10 +1,8 @@
-'use client';
-
 import { FC, ReactNode } from 'react';
 import SimpleBar from 'simplebar-react';
+import clsx from 'clsx';
 import 'simplebar-react/dist/simplebar.min.css';
 import scss from './ScrollBar.module.scss';
-import clsx from 'clsx';
 
 interface IScrollBar {
     children: ReactNode;

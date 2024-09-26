@@ -1,5 +1,4 @@
 import Skeleton from 'react-loading-skeleton';
-import Icon from '@/components/ui/Icon';
 import scss from './SkeletionWaterList.module.scss';
 
 const SkeletionWaterList = () => {
@@ -9,21 +8,14 @@ const SkeletionWaterList = () => {
                 .fill(0)
                 .map((_, index) => (
                     <div key={index} className={scss.waterItem}>
+                        <Skeleton circle className={scss.waterIconSkeleton} />
                         <div className={scss.info}>
-                            <div className={scss.volume}>
-                                <Skeleton containerClassName={scss.volumeSkeleton} />
-                            </div>
-                            <div className={scss.time}>
-                                <Skeleton containerClassName={scss.timeSkeleton} />
-                            </div>
+                            <Skeleton className={scss.volume} />
+                            <Skeleton className={scss.time} />
                         </div>
                         <div className={scss.controls}>
-                            <button className={scss.controlButton}>
-                                <Icon variant="pencil" className={scss.controlIcon} />
-                            </button>
-                            <button className={scss.controlButton}>
-                                <Icon variant="trash" className={scss.controlIcon} />
-                            </button>
+                            <Skeleton circle className={scss.controlIcon} />
+                            <Skeleton circle className={scss.controlIcon} />
                         </div>
                     </div>
                 ))}

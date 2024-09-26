@@ -54,6 +54,10 @@
     & .controlIcon {
         @apply h-[0.875rem] w-[0.875rem] fill-none stroke-primary transition-colors duration-150 ease-linear;
 
+        @include media-rules(tablet) {
+            @apply h-4 w-4;
+        }
+
         &:is(:hover, :focus) {
             @apply stroke-green;
         }

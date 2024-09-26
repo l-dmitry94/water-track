@@ -15,7 +15,7 @@ interface IUseWaters {
 
 const useWaters = create<IUseWaters>((set) => ({
     waters: [],
-    isLoading: false,
+    isLoading: true,
 
     addWater: async (data) => {
         set({ isLoading: true });
@@ -24,7 +24,6 @@ const useWaters = create<IUseWaters>((set) => ({
     },
 
     getDailyWaters: async (date) => {
-        set({ isLoading: true });
         const response = await getDailyWaters(date);
         set({ waters: response.data, isLoading: false });
     },

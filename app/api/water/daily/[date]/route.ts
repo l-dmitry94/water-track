@@ -19,7 +19,7 @@ export const GET = async (req: NextRequest, { params }: { params: { date: string
 
         const dailyWaters = await prisma.water.findMany({
             where: {
-                userId: '66ee6bc06babb366fc53c581',
+                userId: session.user.id,
                 date: {
                     gte: startDate,
                     lte: endDate,
