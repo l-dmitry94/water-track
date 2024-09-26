@@ -7,12 +7,19 @@ interface ILogo {
     variant?: 'gray' | 'green';
     fullHeight?: boolean;
     className?: string;
+    tracker?: boolean;
 }
 
-const Logo: FC<ILogo> = ({ children, fullHeight, variant = 'gray', className }) => {
+const Logo: FC<ILogo> = ({ children, tracker, fullHeight, variant = 'gray', className }) => {
     return (
         <section
-            className={clsx(scss.logo, scss[variant], fullHeight && scss.fullHeight, className)}
+            className={clsx(
+                scss.logo,
+                scss[variant],
+                tracker && scss.tracker,
+                fullHeight && scss.fullHeight,
+                className
+            )}
         >
             <p className={scss.logoText}>WaterTrack</p>
             {children}

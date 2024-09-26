@@ -8,7 +8,7 @@ import scss from './MainInfo.module.scss';
 const MainInfo = () => {
     return (
         <section className={scss.mainInfo}>
-            <Logo variant="green" className={scss.logo}>
+            <Logo variant="green" tracker className={scss.logo}>
                 <div className={scss.content}>
                     <InfoImage />
 

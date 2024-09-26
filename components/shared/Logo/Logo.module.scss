@@ -7,6 +7,16 @@
         @apply px-8 pt-8;
     }
 
+    @include media-rules(desktop) {
+        @apply w-1/2;
+    }
+
+    &.tracker {
+        @include media-rules(desktop) {
+            @apply w-full;
+        }
+    }
+
     &.gray {
         @apply bg-gray;
     }
