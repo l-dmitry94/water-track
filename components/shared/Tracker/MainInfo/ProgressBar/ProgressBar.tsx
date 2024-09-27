@@ -1,11 +1,9 @@
 'use client';
 
-// import waters from '@/data/waters.json';
-import scss from './ProgressBar.module.scss';
 import { useSession } from 'next-auth/react';
-import clsx from 'clsx';
 import Skeleton from 'react-loading-skeleton';
 import useWaters from '@/store/useWaters';
+import scss from './ProgressBar.module.scss';
 
 const ProgressBar = () => {
     const { data: session } = useSession();
@@ -37,10 +35,9 @@ const ProgressBar = () => {
                 )}
 
                 <div className={scss.percentages}>
-                    <p className={clsx(scss.percent, handleDailyNorma() < 14 && 'opacity-0')}>0%</p>
-                    <p className={clsx(scss.percent, handleDailyNorma() > 81 && 'opacity-0')}>
-                        100%
-                    </p>
+                    <p className={scss.percent}>0%</p>
+                    <p className={scss.percent}>50%</p>
+                    <p className={scss.percent}>100%</p>
                 </div>
             </div>
         </section>

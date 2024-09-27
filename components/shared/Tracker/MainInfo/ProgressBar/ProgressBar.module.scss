@@ -9,7 +9,7 @@
 }
 
 .text {
-    @apply mb-2 font-bold leading-none;
+    @apply mb-5 font-bold leading-none;
 
     @include media-rules(tablet) {
         @apply text-base leading-[1.49];
@@ -45,10 +45,10 @@
 }
 
 .value {
-    @apply absolute right-0 top-[14px] translate-x-1/2 select-none text-[0.625rem] leading-none text-secondary/60;
+    @apply absolute right-0 bottom-3 translate-x-1/2 select-none text-[0.5rem] leading-none text-green;
 
     @include media-rules(tablet) {
-        @apply text-sm leading-[1.87] top-4;
+        @apply text-[0.625rem] leading-[1.8];
     }
 }
 

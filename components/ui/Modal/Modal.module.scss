@@ -1,0 +1,72 @@
+@import 'styles/mixins';
+
+.overlay {
+    @apply fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center overflow-hidden overflow-y-auto bg-secondary/60 p-4 opacity-0 transition-opacity duration-150 ease-linear;
+
+    &:global(.ReactModal__Overlay--after-open) {
+        @apply opacity-100;
+    }
+
+    &:global(.ReactModal__Overlay--before-close) {
+        @apply opacity-0;
+    }
+}
+
+.modal {
+    @apply relative w-full max-w-[343px] translate-y-12 rounded-15 bg-white px-5 py-10 outline-none transition-transform duration-150 ease-linear;
+
+    @include media-rules(tablet) {
+        @apply max-w-[518px] p-10;
+    }
+
+    &:global(.ReactModal__Content--after-open) {
+        @apply translate-y-0;
+    }
+
+    &:global(.ReactModal__Content--before-close) {
+        @apply translate-y-12;
+    }
+
+    &.profile {
+    
+        @include media-rules(tablet) {
+            @apply max-w-[648px];
+        }
+
+        @include media-rules(desktop) {
+            @apply max-w-[920px];
+        }
+    }
+}
+
+.closeButton {
+    @apply absolute right-4 top-5;
+
+    @include media-rules(tablet) {
+        @apply right-5;
+    }
+
+    & .closeIcon {
+        @apply fill-secondary stroke-primary;
+
+        @include media-rules(tablet) {
+            @apply h-7 w-7;
+        }
+    }
+}
+
+.title {
+    @apply mb-5 text-xl font-bold leading-[1.2] tracking-tight;
+
+    @include media-rules(tablet) {
+        @apply mb-6 text-[1.75rem] leading-[1.14];
+    }
+
+    &.center {
+        @apply text-center mb-4;
+
+        @include media-rules(tablet) {
+            @apply mb-6;
+        }
+    }
+}

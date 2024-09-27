@@ -1,10 +1,10 @@
 @import 'styles/mixins';
 
 .waterSection {
-    @apply pl-5;
+    @apply pl-5 h-[74px];
 
     @include media-rules(tablet) {
-        @apply px-8;
+        @apply px-8 h-[85px];
     }
 }
 
@@ -30,4 +30,8 @@
     @include media-rules(desktop) {
         @apply gap-4;
     }
+}
+
+.text {
+    @apply pr-5;
 }

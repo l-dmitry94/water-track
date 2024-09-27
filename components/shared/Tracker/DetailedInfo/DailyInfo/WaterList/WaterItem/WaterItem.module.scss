@@ -1,7 +1,7 @@
 @import 'styles/mixins';
 
 .waterItem {
-    @apply flex shrink-0 items-center gap-[0.625rem] rounded-15 bg-white px-[0.875rem] py-[1.125rem];
+    @apply inline-flex shrink-0 items-center gap-[0.625rem] rounded-15 bg-white px-[0.875rem] py-[1.125rem];
 
     @include media-rules(tablet) {
         @apply w-[calc((100%-64px)/3)] p-5 gap-5;
