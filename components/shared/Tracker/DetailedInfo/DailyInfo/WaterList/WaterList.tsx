@@ -25,10 +25,10 @@ const WaterList = () => {
                     <SkeletionWaterList />
                 </div>
             ) : waters && waters.length > 0 ? (
-                <ScrollBar>
-                    {waters.map((water) => (
-                        <WaterItem key={water.id} {...water} />
-                    ))}
+                <ScrollBar className={scss.scroll}>
+                    <div className={scss.waterList}>
+                        {waters?.map((water) => <WaterItem key={water.id} {...water} />)}
+                    </div>
                 </ScrollBar>
             ) : (
                 <p className={scss.text}>

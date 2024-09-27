@@ -10,6 +10,7 @@ const InfoImage = () => {
                 alt="bottle"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
+                rel="preload"
                 priority
                 className={scss.image}
             />

@@ -1,5 +1,9 @@
 @import 'styles/mixins';
 
+.bodyOpen {
+    @apply overflow-hidden;
+}
+
 .overlay {
     @apply fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center overflow-hidden overflow-y-auto bg-secondary/60 p-4 opacity-0 transition-opacity duration-150 ease-linear;
 

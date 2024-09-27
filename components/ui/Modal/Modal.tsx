@@ -26,6 +26,7 @@ const Modal: FC<IModal> = ({
             onRequestClose={onClose}
             closeTimeoutMS={300}
             ariaHideApp={false}
+            bodyOpenClassName={scss.bodyOpen}
             overlayClassName={scss.overlay}
             className={clsx(scss.modal, profile && scss.profile)}
         >

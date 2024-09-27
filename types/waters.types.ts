@@ -1,5 +1,6 @@
 export interface IWater {
-    id: string;
+    id?: string;
     volume: number;
     time: string;
+    date: string;
 }

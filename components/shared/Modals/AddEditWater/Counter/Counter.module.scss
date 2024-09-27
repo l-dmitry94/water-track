@@ -1,0 +1,33 @@
+@import 'styles/mixins';
+
+.counter {
+    @apply mb-4;
+}
+
+.text {
+    @apply mb-2 leading-[1.29] tracking-tight text-secondary;
+
+    @include media-rules(tablet) {
+        @apply text-base leading-normal;
+    }
+}
+
+.controls {
+    @apply flex items-center gap-2;
+
+    & .controlIcon {
+        @apply h-10 w-10 fill-none stroke-primary;
+
+        @include media-rules(tablet) {
+            @apply h-11 w-11;
+        }
+    }
+}
+
+.volume {
+    @apply flex h-10 min-w-[93px] items-center justify-center rounded-30 bg-primary text-center leading-[1.29] text-white;
+
+    @include media-rules(tablet) {    
+        @apply text-base leading-[1.49];
+    }
+}

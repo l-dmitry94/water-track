@@ -1,17 +1,19 @@
 import { HTMLInputTypeAttribute, InputHTMLAttributes, useState } from 'react';
-import { FieldErrors, FieldValues, Path, UseFormRegister } from 'react-hook-form';
+import { FieldValues, Path, UseFormSetValue } from 'react-hook-form';
 import clsx from 'clsx';
 import Icon from '../Icon';
+import { IForm } from '@/types/form.types';
 import scss from './Input.module.scss';
 
 interface IInput<T extends FieldValues>
-    extends Omit<InputHTMLAttributes<HTMLInputElement>, 'name'> {
+    extends Omit<InputHTMLAttributes<HTMLInputElement>, 'name'>,
+        IForm<T> {
     type: HTMLInputTypeAttribute;
-    register: UseFormRegister<T>;
     name: Path<T>;
-    errors: FieldErrors<T>;
     label: string;
+    light?: boolean;
     className?: string;
+    setValue?: UseFormSetValue<T>;
 }
 
 const Input = <T extends FieldValues>({
@@ -19,6 +21,7 @@ const Input = <T extends FieldValues>({
     name,
     label,
     type,
+    light,
     className,
     errors,
     ...props
@@ -30,7 +33,7 @@ const Input = <T extends FieldValues>({
     };
     return (
         <div className={scss.wrapper}>
-            <label htmlFor={name} className={scss.label}>
+            <label htmlFor={name} className={clsx(scss.label, light && scss.lightLabel)}>
                 {label}
             </label>
             <div className={scss.inputWrapper}>

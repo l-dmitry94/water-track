@@ -10,6 +10,10 @@
     @include media-rules(tablet) {
         @apply text-base leading-normal;
     }
+
+    &.lightLabel {
+        @apply font-normal;
+    }
 }
 
 .inputWrapper {
@@ -29,6 +33,12 @@
 
     &.errorInput {
         @apply border-red;
+    }
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-calendar-picker-indicator {
+        display: none;
+        -webkit-appearance: none;
     }
 }
 
