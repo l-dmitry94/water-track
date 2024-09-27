@@ -7,9 +7,9 @@ import Counter from './Counter';
 import RecordingTime from './RecordingTime';
 import { waterValidationSchema } from './waterValidationSchema';
 import VolumeValue from './VolumeValue';
-import scss from './AddEditWater.module.scss';
 import useWaters from '@/store/useWaters';
 import WaterLoader from '@/components/ui/WaterLoader';
+import scss from './AddEditWater.module.scss';
 
 interface IAddEditWater {
     time: string;
