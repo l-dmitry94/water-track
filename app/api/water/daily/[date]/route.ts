@@ -1,17 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
+// import { getServerSession } from 'next-auth';
 import { endOfDay, startOfDay } from 'date-fns';
-import authOptions from '@/configs/next-auth';
+// import authOptions from '@/configs/next-auth';
 import prisma from '@/configs/prisma';
 
 export const GET = async (req: NextRequest, { params }: { params: { date: string } }) => {
-    const session = await getServerSession(authOptions);
+    // const session = await getServerSession(authOptions);
 
-    console.log(session);
+    // console.log(session);
 
-    if (!session) {
-        return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
-    }
+    // if (!session) {
+    //     return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
+    // }
 
     try {
         const { date } = params;
@@ -26,7 +26,7 @@ export const GET = async (req: NextRequest, { params }: { params: { date: string
 
         const dailyWaters = await prisma.water.findMany({
             where: {
-                userId: session.user.id,
+                // userId: session.user.id,
                 date: {
                     gte: startDate,
                     lte: endDate,
