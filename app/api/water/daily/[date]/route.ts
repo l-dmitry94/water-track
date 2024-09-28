@@ -12,6 +12,9 @@ export const GET = async (req: NextRequest, { params }: { params: { date: string
         return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
     }
 
+    console.log(req);
+    console.log(params);
+
     try {
         const dailyWaters = await prisma.water.findMany({
             where: {
