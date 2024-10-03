@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import authOptions from '@/configs/next-auth';
 import prisma from '@/configs/prisma';
+import { endOfDay, startOfDay } from 'date-fns';
 
 export const GET = async (req: NextRequest, { params }: { params: { date: string } }) => {
     const session = await getServerSession(authOptions);
@@ -13,10 +14,21 @@ export const GET = async (req: NextRequest, { params }: { params: { date: string
     try {
         const { date } = params;
 
+        console.log(date);
+
+        const startDate = startOfDay(new Date(date)).toLocaleString();
+        const endDate = endOfDay(new Date(date)).toLocaleString();
+
+        console.log(startDate);
+        console.log(endDate);
+
         const dailyWaters = await prisma.water.findMany({
             where: {
                 userId: session.user.id,
-                date,
+                date: {
+                    gte: startDate,
+                    lte: endDate,
+                },
             },
         });
 

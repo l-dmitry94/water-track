@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { format } from 'date-fns';
 import toast from 'react-hot-toast';
 import Form from '@/components/ui/Form';
 import Button from '@/components/ui/Button';
@@ -23,7 +22,7 @@ const AddEditWater = ({ onClose }: { onClose: () => void }) => {
     const [volume, setVolume] = useState(50);
 
     const handleSubmit = async (data: IAddEditWater) => {
-        const currentDate = format(new Date(), 'yyyy-MM-dd');
+        const currentDate = new Date().toLocaleString();
         setIsLoading(true);
         await createWater({ ...data, date: currentDate });
         setIsLoading(false);
