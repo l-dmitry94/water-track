@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import authOptions from '@/configs/next-auth';
 import prisma from '@/configs/prisma';
-import { endOfDay, startOfDay } from 'date-fns';
+// import { endOfDay, startOfDay } from 'date-fns';
 
 export const GET = async (req: NextRequest, { params }: { params: { date: string } }) => {
     const session = await getServerSession(authOptions);
