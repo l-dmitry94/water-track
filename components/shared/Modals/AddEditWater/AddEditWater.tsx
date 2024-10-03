@@ -22,7 +22,8 @@ const AddEditWater = ({ onClose }: { onClose: () => void }) => {
     const [volume, setVolume] = useState(50);
 
     const handleSubmit = async (data: IAddEditWater) => {
-        const currentDate = new Date().toLocaleString();
+        const currentDate = new Date().toISOString();
+        console.log(currentDate);
         setIsLoading(true);
         await createWater({ ...data, date: currentDate });
         setIsLoading(false);

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
 import { useEffect } from 'react';
@@ -12,11 +13,11 @@ const WaterList = () => {
     const waters = useWaters((state) => state.waters);
     const isLoading = useWaters((state) => state.isLoading);
     const getDailyWaters = useWaters((state) => state.getDailyWaters);
-    const today = format(new Date(), 'dd.MM.yyyy');
+    const today = format(new Date(), 'yyyy-MM-dd');
 
     useEffect(() => {
         getDailyWaters(today);
-    }, [getDailyWaters, today]);
+    }, [getDailyWaters]);
 
     return (
         <section className={scss.waterSection}>
