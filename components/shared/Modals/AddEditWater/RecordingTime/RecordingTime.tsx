@@ -4,8 +4,16 @@ import Input from '@/components/ui/Input';
 import { IForm } from '@/types/form.types';
 import scss from './RecordingTime.module.scss';
 
-const RecordingTime = <T extends FieldValues>({ register, errors }: IForm<T>) => {
-    const currentTime = format(new Date(), 'HH:mm');
+interface RecordingTimeProps<T extends FieldValues> extends IForm<T> {
+    oldTime?: string;
+}
+
+const RecordingTime = <T extends FieldValues>({
+    register,
+    errors,
+    oldTime,
+}: RecordingTimeProps<T>) => {
+    const currentTime = oldTime || format(new Date(), 'HH:mm');
 
     return (
         <div className={scss.recordingTimeWrapper}>

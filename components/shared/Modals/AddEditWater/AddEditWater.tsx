@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import toast from 'react-hot-toast';
 import Form from '@/components/ui/Form';
 import Button from '@/components/ui/Button';
@@ -9,22 +9,29 @@ import VolumeValue from './VolumeValue';
 import useWaters from '@/store/useWaters';
 import WaterLoader from '@/components/ui/WaterLoader';
 import scss from './AddEditWater.module.scss';
+import { IWater } from '@/types/waters.types';
 
-interface IAddEditWater {
+interface IAddEditWaterData {
     time: string;
     volume: number;
 }
 
-const AddEditWater = ({ onClose }: { onClose: () => void }) => {
+interface IAddEditWater {
+    onClose: () => void;
+    water?: IWater;
+}
+
+const AddEditWater: FC<IAddEditWater> = ({ onClose, water }) => {
     const [isLoading, setIsLoading] = useState(false);
     const createWater = useWaters((state) => state.addWater);
     const error = useWaters((state) => state.error);
-    const [volume, setVolume] = useState(50);
+    const [volume, setVolume] = useState(water?.volume || 50);
 
-    const handleSubmit = async (data: IAddEditWater) => {
+    const handleSubmit = async (data: IAddEditWaterData) => {
         const currentDate = new Date().toISOString();
-        console.log(currentDate);
         setIsLoading(true);
+        if (water) {
+        }
         await createWater({ ...data, date: currentDate });
         setIsLoading(false);
 
@@ -45,9 +52,13 @@ const AddEditWater = ({ onClose }: { onClose: () => void }) => {
 
                         <Counter volume={volume} setVolume={setVolume} setValue={setValue} />
 
-                        <RecordingTime<IAddEditWater> register={register} errors={errors} />
+                        <RecordingTime<IAddEditWaterData>
+                            register={register}
+                            errors={errors}
+                            oldTime={water?.time}
+                        />
 
-                        <VolumeValue<IAddEditWater>
+                        <VolumeValue<IAddEditWaterData>
                             register={register}
                             errors={errors}
                             volume={volume}
