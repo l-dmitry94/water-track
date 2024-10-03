@@ -12,7 +12,7 @@ const WaterList = () => {
     const waters = useWaters((state) => state.waters);
     const isLoading = useWaters((state) => state.isLoading);
     const getDailyWaters = useWaters((state) => state.getDailyWaters);
-    const today = format(new Date(), 'yyyy-MM-dd');
+    const today = format(new Date(), 'dd.MM.yyyy');
 
     useEffect(() => {
         getDailyWaters(today);

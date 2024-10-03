@@ -14,13 +14,8 @@ export const GET = async (req: NextRequest, { params }: { params: { date: string
     try {
         const { date } = params;
 
-        console.log(date);
-
-        const startDate = startOfDay(new Date(date)).toLocaleString();
-        const endDate = endOfDay(new Date(date)).toLocaleString();
-
-        console.log(startDate);
-        console.log(endDate);
+        const startDate = `${date}, 00:00:00`;
+        const endDate = `${date}, 23:59:59`;
 
         const dailyWaters = await prisma.water.findMany({
             where: {
