@@ -1,20 +1,9 @@
 import { create } from 'zustand';
+import { devtools } from 'zustand/middleware';
 import instance from '@/services/axios.config';
 import ENDPOINTS from '@/services/endpoints';
-import { createWater, getDailyWaters, updateWater } from '@/services/waters.api';
-import { IWater } from '@/types/waters.types';
-import { devtools } from 'zustand/middleware';
-
-interface IUseWaters {
-    waters: IWater[];
-    isLoading: boolean;
-    addWater: (data: IWater) => Promise<void>;
-    updateWater: (data: IWater, id: string) => Promise<void>;
-    getDailyWaters: (date: string) => Promise<void>;
-    getWeeklyWaters: (date: string) => Promise<void>;
-    getMonthlyWaters: (date: string) => Promise<void>;
-    error: string | null;
-}
+import { createWater, deleteWater, getDailyWaters, updateWater } from '@/services/waters.api';
+import { IUseWaters } from '@/types/waters.types';
 
 const useWaters = create<IUseWaters>()(
     devtools((set) => ({
@@ -41,6 +30,18 @@ const useWaters = create<IUseWaters>()(
                 set((state) => ({
                     waters: state.waters.map((water) => (water.id === id ? response.data : water)),
                 }));
+            } catch (error: any) {
+                set({ error: error?.response?.data?.message || 'An error occurred' });
+            } finally {
+                set({ isLoading: false });
+            }
+        },
+
+        deleteWater: async (id) => {
+            try {
+                set({ isLoading: true, error: null });
+                await deleteWater(id);
+                set((state) => ({ waters: state.waters.filter((water) => water.id !== id) }));
             } catch (error: any) {
                 set({ error: error?.response?.data?.message || 'An error occurred' });
             } finally {

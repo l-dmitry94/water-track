@@ -1,0 +1,21 @@
+@import 'styles/mixins';
+
+.text {
+    @apply mb-7 leading-[1.29] tracking-tight text-center;
+
+    @include media-rules(tablet) {
+        @apply text-lg leading-[1.33] mb-6;
+    }
+}
+
+.buttonsGroup {
+    @apply flex flex-col gap-2;
+
+    @include media-rules(tablet) {
+        @apply max-w-[356px] mx-auto flex-row gap-3;
+    }
+
+    & .cancelButton {
+        @apply bg-gray text-primary/30;
+    }
+}

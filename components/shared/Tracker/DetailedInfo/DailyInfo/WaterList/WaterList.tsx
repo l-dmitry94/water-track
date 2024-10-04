@@ -11,6 +11,7 @@ import scss from './WaterList.module.scss';
 import Modal from '@/components/ui/Modal';
 import { IWater } from '@/types/waters.types';
 import AddEditWater from '@/components/shared/Modals/AddEditWater';
+import DeleteWater from '@/components/shared/Modals/DeleteWater';
 
 const WaterList = () => {
     const [isEditModalIsOpen, setIsEditModalIsOpen] = useState(false);
@@ -69,6 +70,17 @@ const WaterList = () => {
             >
                 {water && (
                     <AddEditWater water={water} onClose={() => setIsEditModalIsOpen(false)} />
+                )}
+            </Modal>
+
+            <Modal
+                isOpen={isDeleteModalIsOpen}
+                onClose={() => setIsDeleteModalIsOpen(false)}
+                title="Delete entry"
+                positionTitle="center"
+            >
+                {water && (
+                    <DeleteWater water={water} onClose={() => setIsDeleteModalIsOpen(false)} />
                 )}
             </Modal>
         </>

@@ -16,12 +16,12 @@ interface IAddEditWaterData {
     volume: number;
 }
 
-interface IAddEditWater {
+export interface IAddEditDeleteWater {
     onClose: () => void;
     water?: IWater;
 }
 
-const AddEditWater: FC<IAddEditWater> = ({ onClose, water }) => {
+const AddEditWater: FC<IAddEditDeleteWater> = ({ onClose, water }) => {
     const [isLoading, setIsLoading] = useState(false);
     const createWater = useWaters((state) => state.addWater);
     const updateWater = useWaters((state) => state.updateWater);

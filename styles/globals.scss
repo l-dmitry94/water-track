@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+button {
+    @apply outline-none;
+}
+
 body {
     @apply bg-white text-sm text-primary;
 }
