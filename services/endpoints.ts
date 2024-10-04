@@ -5,6 +5,7 @@ const ENDPOINTS = {
 
     waters: {
         create: '/water/create',
+        update: '/water',
         getDailyWaters: '/water/daily',
         getWeeklyWaters: '/water/weekly',
         getMonthlyWaters: '/water/monthly',

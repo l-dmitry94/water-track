@@ -24,6 +24,7 @@ interface IAddEditWater {
 const AddEditWater: FC<IAddEditWater> = ({ onClose, water }) => {
     const [isLoading, setIsLoading] = useState(false);
     const createWater = useWaters((state) => state.addWater);
+    const updateWater = useWaters((state) => state.updateWater);
     const error = useWaters((state) => state.error);
     const [volume, setVolume] = useState(water?.volume || 50);
 
@@ -31,6 +32,11 @@ const AddEditWater: FC<IAddEditWater> = ({ onClose, water }) => {
         const currentDate = new Date().toISOString();
         setIsLoading(true);
         if (water) {
+            await updateWater({ ...data }, water.id!);
+            setIsLoading(false);
+            toast.success('Water updated successfully');
+            onClose();
+            return;
         }
         await createWater({ ...data, date: currentDate });
         setIsLoading(false);
