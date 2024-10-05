@@ -25,10 +25,10 @@
 }
 
 .date {
-    @apply flex items-center gap-4;
+    @apply flex items-center gap-1;
 
     @include media-rules(tablet) {
-        @apply gap-5;
+        @apply gap-2;
     }
 
     & .arrowIcon {
@@ -45,9 +45,9 @@
 }
 
 .dateText {
-    @apply font-bold leading-[1.29] tracking-tight;
+    @apply font-bold leading-[1.29] tracking-tight text-center w-[120px];
 
     @include media-rules(tablet) {
-        @apply text-base leading-[1.5];
+        @apply text-base leading-[1.5] w-[137px];
     }
 }
