@@ -5,10 +5,12 @@ import useWaters from '@/store/useWaters';
 import WaterLoader from '@/components/ui/WaterLoader';
 import { IAddEditDeleteWater } from '../AddEditWater';
 import scss from './DeleteWater.module.scss';
+import { format } from 'date-fns';
 
-const DeleteWater: FC<IAddEditDeleteWater> = ({ water, onClose }) => {
+const DeleteWater: FC<IAddEditDeleteWater> = ({ water, currentDate, onClose }) => {
     const [isLoading, setIsLoading] = useState(false);
     const deleteWater = useWaters((state) => state.deleteWater);
+    const getMonthlyWaters = useWaters((state) => state.getMonthlyWaters);
     const error = useWaters((state) => state.error);
 
     const handleDeleteWater = async () => {
@@ -23,6 +25,8 @@ const DeleteWater: FC<IAddEditDeleteWater> = ({ water, onClose }) => {
             }
 
             onClose();
+
+            await getMonthlyWaters(format(currentDate!, 'yyyy-MM-dd'));
 
             toast.success('Water deleted successfully');
         }

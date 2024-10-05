@@ -1,13 +1,15 @@
-import { FC, useState } from 'react';
+import { Dispatch, FC, SetStateAction } from 'react';
 import { format, addMonths, subMonths } from 'date-fns';
 import Icon from '@/components/ui/Icon';
-import { ITracker } from '../../../Tracker';
 import scss from './CalendarHeader.module.scss';
 
-const CalendarHeader: FC<ITracker> = ({ currentDate }) => {
-    const [date, setDate] = useState(new Date(currentDate));
+interface ICalendarHeader {
+    currentDate: Date;
+    setDate: Dispatch<SetStateAction<Date>>;
+}
 
-    const formattedDate = format(date, 'MMMM, yyyy');
+const CalendarHeader: FC<ICalendarHeader> = ({ currentDate, setDate }) => {
+    const formattedDate = format(currentDate, 'MMMM, yyyy');
 
     const handleNextMonth = () => {
         setDate((prevDate) => addMonths(prevDate, 1));

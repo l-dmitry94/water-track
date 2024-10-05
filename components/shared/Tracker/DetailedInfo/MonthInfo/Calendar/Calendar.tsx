@@ -1,26 +1,27 @@
 import { FC, useEffect } from 'react';
-import { getDaysInMonth } from 'date-fns';
+import { format, getDaysInMonth } from 'date-fns';
 import CalendarItem from './CalendarItem';
 import useWaters from '@/store/useWaters';
-import { ITracker } from '../../../Tracker';
 import { IWater } from '@/types/waters.types';
 import scss from './Calendar.module.scss';
 
-const Calendar: FC<ITracker> = ({ currentDate }) => {
+interface ICalendar {
+    currentDate: Date;
+}
+
+const Calendar: FC<ICalendar> = ({ currentDate }) => {
     const getMonthlyWaters = useWaters((state) => state.getMonthlyWaters);
     const monthlyWaters = useWaters((state) => state.monthlyWaters);
-    const waters = useWaters((state) => state.waters);
+    // const waters = useWaters((state) => state.waters);
 
-    const daysInMonth = getDaysInMonth(new Date(currentDate));
+    const daysInMonth = getDaysInMonth(currentDate);
     const today = new Date(currentDate).getDate();
 
     const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
 
     useEffect(() => {
-        if (waters.length > 0 || monthlyWaters.length === 0) {
-            getMonthlyWaters(currentDate);
-        }
-    }, [waters, currentDate, getMonthlyWaters, monthlyWaters.length]);
+        getMonthlyWaters(format(currentDate, 'yyyy-MM-dd'));
+    }, [currentDate, getMonthlyWaters]);
 
     const waterPerDay: Record<number, number> = {};
 
@@ -38,7 +39,13 @@ const Calendar: FC<ITracker> = ({ currentDate }) => {
     return (
         <div className={scss.calendar}>
             {days.map((day) => (
-                <CalendarItem key={day} day={day} today={today} volume={waterPerDay[day] || 0} />
+                <CalendarItem
+                    key={day}
+                    day={day}
+                    today={today}
+                    currentDate={currentDate.toISOString()}
+                    volume={waterPerDay[day] || 0}
+                />
             ))}
         </div>
     );

@@ -10,6 +10,7 @@ import useWaters from '@/store/useWaters';
 import WaterLoader from '@/components/ui/WaterLoader';
 import scss from './AddEditWater.module.scss';
 import { IWater } from '@/types/waters.types';
+import { format } from 'date-fns';
 
 interface IAddEditWaterData {
     time: string;
@@ -26,6 +27,7 @@ const AddEditWater: FC<IAddEditDeleteWater> = ({ onClose, water, currentDate }) 
     const [isLoading, setIsLoading] = useState(false);
     const createWater = useWaters((state) => state.addWater);
     const updateWater = useWaters((state) => state.updateWater);
+    const getMonthlyWaters = useWaters((state) => state.getMonthlyWaters);
     const error = useWaters((state) => state.error);
     const [volume, setVolume] = useState(water?.volume || 50);
 
@@ -36,6 +38,7 @@ const AddEditWater: FC<IAddEditDeleteWater> = ({ onClose, water, currentDate }) 
             setIsLoading(false);
             toast.success('Water updated successfully');
             onClose();
+            await getMonthlyWaters(format(currentDate!, 'yyyy-MM-dd'));
             return;
         }
         await createWater({ ...data, date: currentDate });
@@ -48,6 +51,7 @@ const AddEditWater: FC<IAddEditDeleteWater> = ({ onClose, water, currentDate }) 
 
         toast.success('Water added successfully');
         onClose();
+        await getMonthlyWaters(format(currentDate!, 'yyyy-MM-dd'));
     };
     return (
         <div className={scss.modal}>

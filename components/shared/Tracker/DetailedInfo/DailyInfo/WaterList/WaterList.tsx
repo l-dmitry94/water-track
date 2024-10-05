@@ -67,7 +67,11 @@ const WaterList: FC<ITracker> = ({ currentDate }) => {
                 title="Edit the entered amount of water"
             >
                 {water && (
-                    <AddEditWater water={water} onClose={() => setIsEditModalIsOpen(false)} />
+                    <AddEditWater
+                        water={water}
+                        currentDate={currentDate}
+                        onClose={() => setIsEditModalIsOpen(false)}
+                    />
                 )}
             </Modal>
 
@@ -78,7 +82,11 @@ const WaterList: FC<ITracker> = ({ currentDate }) => {
                 positionTitle="center"
             >
                 {water && (
-                    <DeleteWater water={water} onClose={() => setIsDeleteModalIsOpen(false)} />
+                    <DeleteWater
+                        water={water}
+                        currentDate={currentDate}
+                        onClose={() => setIsDeleteModalIsOpen(false)}
+                    />
                 )}
             </Modal>
         </>

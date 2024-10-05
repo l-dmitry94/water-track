@@ -1,3 +1,13 @@
+@import 'styles/mixins';
+
 .calendar {
     @apply flex flex-wrap gap-x-[1.125rem] gap-y-5 px-4;
+
+    @include media-rules(tablet) {
+        @apply gap-x-12 gap-y-4 px-8;
+    }
+
+    @include media-rules(desktop) {
+        @apply gap-x-[43px]
+    }
 }

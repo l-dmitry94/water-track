@@ -1,9 +1,23 @@
+@import 'styles/mixins';
+
 .calendarItem {
     @apply basis-[calc((100%-140px)/7)];
+
+    @include media-rules(tablet) {
+        @apply basis-[calc((100%-336px)/8)];
+    }
+
+    @include media-rules(desktop) {
+        @apply basis-[calc((100%-301px)/8)];
+    }
 }
 
 .day {
     @apply mb-[6px] flex h-7 w-7 items-center justify-center rounded-full bg-primary/20 font-bold leading-[1.29] tracking-tight;
+
+    @include media-rules(tablet) {
+        @apply h-[38px] w-[38px] text-base leading-normal;
+    }
 
     &.full {
         @apply bg-white;
@@ -16,4 +30,8 @@
 
 .percent {
     @apply text-center text-[0.625rem] leading-none text-secondary/60;
+
+    @include media-rules(tablet) {
+        @apply text-xs leading-[1.87];
+    }
 }
