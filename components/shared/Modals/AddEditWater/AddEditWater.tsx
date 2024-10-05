@@ -19,9 +19,10 @@ interface IAddEditWaterData {
 export interface IAddEditDeleteWater {
     onClose: () => void;
     water?: IWater;
+    currentDate?: string;
 }
 
-const AddEditWater: FC<IAddEditDeleteWater> = ({ onClose, water }) => {
+const AddEditWater: FC<IAddEditDeleteWater> = ({ onClose, water, currentDate }) => {
     const [isLoading, setIsLoading] = useState(false);
     const createWater = useWaters((state) => state.addWater);
     const updateWater = useWaters((state) => state.updateWater);
@@ -29,7 +30,6 @@ const AddEditWater: FC<IAddEditDeleteWater> = ({ onClose, water }) => {
     const [volume, setVolume] = useState(water?.volume || 50);
 
     const handleSubmit = async (data: IAddEditWaterData) => {
-        const currentDate = new Date().toISOString();
         setIsLoading(true);
         if (water) {
             await updateWater({ ...data }, water.id!);

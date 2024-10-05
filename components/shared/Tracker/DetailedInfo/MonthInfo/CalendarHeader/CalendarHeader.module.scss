@@ -1,0 +1,53 @@
+@import 'styles/mixins';
+
+.calendarHeader {
+    @apply mb-6 flex items-center justify-between px-5;
+
+    @include media-rules(tablet) {
+        @apply px-8;
+    }
+}
+
+.title {
+    @apply text-xl font-bold leading-[1.2] tracking-tight;
+
+    @include media-rules(tablet) {
+        @apply text-[1.75rem] leading-[1.14];
+    }
+}
+
+.wrapper {
+    @apply flex items-center gap-4;
+
+    @include media-rules(tablet) {
+        @apply gap-5;
+    }
+}
+
+.date {
+    @apply flex items-center gap-4;
+
+    @include media-rules(tablet) {
+        @apply gap-5;
+    }
+
+    & .arrowIcon {
+        @apply h-[1.125rem] w-[1.125rem] fill-none stroke-primary;
+    }
+
+    & .statisticIcon {
+        @apply h-5 w-5;
+
+        @include media-rules(tablet) {
+            @apply h-6 w-6;
+        }
+    }
+}
+
+.dateText {
+    @apply font-bold leading-[1.29] tracking-tight;
+
+    @include media-rules(tablet) {
+        @apply text-base leading-[1.5];
+    }
+}

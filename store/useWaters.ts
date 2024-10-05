@@ -1,13 +1,18 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
-import instance from '@/services/axios.config';
-import ENDPOINTS from '@/services/endpoints';
-import { createWater, deleteWater, getDailyWaters, updateWater } from '@/services/waters.api';
+import {
+    createWater,
+    deleteWater,
+    getDailyWaters,
+    getMonthlyWaters,
+    updateWater,
+} from '@/services/waters.api';
 import { IUseWaters } from '@/types/waters.types';
 
 const useWaters = create<IUseWaters>()(
     devtools((set) => ({
         waters: [],
+        monthlyWaters: [],
         isLoading: true,
         error: null,
 
@@ -60,22 +65,11 @@ const useWaters = create<IUseWaters>()(
                 set({ isLoading: false });
             }
         },
-        getWeeklyWaters: async (date) => {
-            try {
-                set({ isLoading: true, error: null });
-                const response = await instance.get(`${ENDPOINTS.waters.getWeeklyWaters}/${date}`);
-                set({ waters: response.data });
-            } catch (error: any) {
-                set({ error: error?.response?.data?.message || 'An error occurred' });
-            } finally {
-                set({ isLoading: false });
-            }
-        },
         getMonthlyWaters: async (date) => {
             try {
                 set({ isLoading: true, error: null });
-                const response = await instance.get(`${ENDPOINTS.waters.getMonthlyWaters}/${date}`);
-                set({ waters: response.data });
+                const response = await getMonthlyWaters(date);
+                set({ monthlyWaters: response.data });
             } catch (error: any) {
                 set({ error: error?.response?.data?.message || 'An error occurred' });
             } finally {

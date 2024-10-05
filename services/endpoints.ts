@@ -7,9 +7,9 @@ const ENDPOINTS = {
         create: '/water/create',
         update: '/water',
         delete: '/water',
-        getDailyWaters: '/water/daily',
-        getWeeklyWaters: '/water/weekly',
-        getMonthlyWaters: '/water/monthly',
+        daily: '/water/daily',
+        weekly: '/water/weekly',
+        monthly: '/water/monthly',
     },
 };
 

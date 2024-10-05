@@ -15,5 +15,9 @@ export const deleteWater = async (id: string) => {
 };
 
 export const getDailyWaters = async (date: string) => {
-    return await instance.get(`${ENDPOINTS.waters.getDailyWaters}/${date}`);
+    return await instance.get(`${ENDPOINTS.waters.daily}/${date}`);
+};
+
+export const getMonthlyWaters = async (date: string) => {
+    return await instance.get(`${ENDPOINTS.waters.monthly}/${date}`);
 };

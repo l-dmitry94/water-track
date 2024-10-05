@@ -8,7 +8,8 @@ import scss from './DeleteWater.module.scss';
 
 const DeleteWater: FC<IAddEditDeleteWater> = ({ water, onClose }) => {
     const [isLoading, setIsLoading] = useState(false);
-    const { deleteWater, error } = useWaters();
+    const deleteWater = useWaters((state) => state.deleteWater);
+    const error = useWaters((state) => state.error);
 
     const handleDeleteWater = async () => {
         if (water) {

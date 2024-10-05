@@ -37,7 +37,7 @@
 }
 
 .filled {
-    @apply relative z-10 h-full w-1/2 rounded-lg bg-green;
+    @apply relative z-10 h-full w-1/2 rounded-lg bg-green transition-all duration-300 ease-linear;
 
     &::after {
         @apply absolute right-0 top-1/2 block h-3 w-3 -translate-y-1/2 translate-x-1/2 rounded-full border border-green bg-white content-[''];

@@ -1,5 +1,9 @@
 @import 'styles/mixins';
 
+.dailyInfo {
+    @apply mb-[72px];
+}
+
 .wrapper {
     @apply px-5 flex items-center justify-between mb-6;
 

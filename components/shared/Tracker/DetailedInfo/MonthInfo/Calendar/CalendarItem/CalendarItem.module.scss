@@ -1,0 +1,19 @@
+.calendarItem {
+    @apply basis-[calc((100%-140px)/7)];
+}
+
+.day {
+    @apply mb-[6px] flex h-7 w-7 items-center justify-center rounded-full bg-primary/20 font-bold leading-[1.29] tracking-tight;
+
+    &.full {
+        @apply bg-white;
+    }
+
+    &.today {
+        @apply bg-primary text-green;
+    }
+}
+
+.percent {
+    @apply text-center text-[0.625rem] leading-none text-secondary/60;
+}

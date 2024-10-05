@@ -17,7 +17,7 @@ const ProgressBar = () => {
         if (result > 100) {
             return 100;
         }
-        return Math.round((total / session?.user?.volume) * 100);
+        return result;
     };
 
     return (

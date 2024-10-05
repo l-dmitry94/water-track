@@ -17,7 +17,9 @@ type IconVariant =
     | 'trash'
     | 'upload'
     | 'user'
-    | 'water-glass';
+    | 'water-glass'
+    | 'chevron-left'
+    | 'chevron-right';
 
 interface IIcon {
     variant: IconVariant;

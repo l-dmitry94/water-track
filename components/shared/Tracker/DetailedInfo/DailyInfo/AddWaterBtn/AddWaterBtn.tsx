@@ -1,13 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import Button from '@/components/ui/Button';
 import Icon from '@/components/ui/Icon';
 import Modal from '@/components/ui/Modal';
-import scss from './AddWaterBtn.module.scss';
 import AddEditWater from '@/components/shared/Modals/AddEditWater';
+import { ITracker } from '../../../Tracker';
+import scss from './AddWaterBtn.module.scss';
 
-const AddWaterBtn = () => {
+const AddWaterBtn: FC<ITracker> = ({ currentDate }) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const toggleModal = () => setModalIsOpen(!modalIsOpen);
@@ -22,7 +23,7 @@ const AddWaterBtn = () => {
             </Button>
 
             <Modal isOpen={modalIsOpen} onClose={toggleModal} title="Add water">
-                <AddEditWater onClose={toggleModal} />
+                <AddEditWater currentDate={currentDate} onClose={toggleModal} />
             </Modal>
         </>
     );
