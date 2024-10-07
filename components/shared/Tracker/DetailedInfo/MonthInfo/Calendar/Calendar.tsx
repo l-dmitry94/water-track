@@ -4,15 +4,14 @@ import CalendarItem from './CalendarItem';
 import useWaters from '@/store/useWaters';
 import { IWater } from '@/types/waters.types';
 import scss from './Calendar.module.scss';
+import SkeletonCalendar from './SkeletonCalendar';
 
-interface ICalendar {
+export interface ICalendar {
     currentDate: Date;
 }
 
 const Calendar: FC<ICalendar> = ({ currentDate }) => {
-    const getMonthlyWaters = useWaters((state) => state.getMonthlyWaters);
-    const monthlyWaters = useWaters((state) => state.monthlyWaters);
-    // const waters = useWaters((state) => state.waters);
+    const { monthlyWaters, getMonthlyWaters, isLoading } = useWaters();
 
     const daysInMonth = getDaysInMonth(currentDate);
     const today = new Date(currentDate).getDate();
@@ -35,6 +34,10 @@ const Calendar: FC<ICalendar> = ({ currentDate }) => {
 
         waterPerDay[day] += water.volume;
     });
+
+    if (isLoading) {
+        return <SkeletonCalendar currentDate={currentDate} />;
+    }
 
     return (
         <div className={scss.calendar}>

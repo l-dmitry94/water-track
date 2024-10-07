@@ -1,0 +1,41 @@
+@import 'styles/mixins';
+
+.calendar {
+    @apply flex flex-wrap gap-x-[1.125rem] gap-y-5 px-4;
+
+    @include media-rules(tablet) {
+        @apply gap-x-12 gap-y-4 px-8;
+    }
+
+    @include media-rules(desktop) {
+        @apply gap-x-[43px]
+    }
+}
+
+.calendarItem {
+    @apply basis-[calc((100%-140px)/7)] flex flex-col gap-[6px] leading-none;
+
+    @include media-rules(tablet) {
+        @apply basis-[calc((100%-336px)/8)];
+    }
+
+    @include media-rules(desktop) {
+        @apply basis-[calc((100%-301px)/8)];
+    }
+}
+
+.day {
+    @apply w-7 h-7;
+
+    @include media-rules(tablet) {
+        @apply h-[38px] w-[38px];
+    }
+}
+
+.percent {
+    @apply h-[10px];
+
+    @include media-rules(tablet) {
+        @apply h-[22.44px];
+    }
+}

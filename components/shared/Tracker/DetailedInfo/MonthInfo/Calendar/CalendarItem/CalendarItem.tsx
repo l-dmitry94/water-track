@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import clsx from 'clsx';
-import scss from './CalendarItem.module.scss';
-import { useSession } from 'next-auth/react';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
+import clsx from 'clsx';
 import { ITracker } from '@/components/shared/Tracker/Tracker';
+import scss from './CalendarItem.module.scss';
 
 interface ICalendarItem extends ITracker {
     day: number;
