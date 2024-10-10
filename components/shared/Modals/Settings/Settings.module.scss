@@ -1,0 +1,39 @@
+@import 'styles/mixins';
+
+.scrollBar {
+    @apply max-h-[300px];
+
+    :global(.simplebar-track.simplebar-vertical) {
+        @apply pointer-events-auto -right-[14px] w-[6px];
+
+        @include media-rules(tablet) {
+            @apply w-2 -right-6;
+        }
+    }
+
+    :global(.simplebar-scrollbar:before) {
+        @apply bg-gray;
+    }
+}
+
+.infoWrapper {
+    @apply mb-10 flex flex-col gap-6;
+
+    @include media-rules(desktop) {
+        @apply flex-row gap-10;
+    }
+}
+
+.container {
+    @include media-rules(desktop) {
+        @apply w-1/2;
+    }
+}
+
+.saveButton {
+    @apply w-[116px];
+
+    @include media-rules(tablet) {
+        @apply w-[141px];
+    }
+}

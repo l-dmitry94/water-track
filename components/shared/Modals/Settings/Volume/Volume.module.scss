@@ -1,0 +1,17 @@
+@import 'styles/mixins';
+
+.info {
+    @apply mb-[0.875rem] flex flex-col gap-1;
+
+    @include media-rules(tablet) {
+        @apply flex-row;
+    }
+}
+
+.text {
+    @apply leading-[1.29] tracking-tight text-secondary;
+}
+
+.value {
+    @apply font-bold leading-[1.29] text-green underline cursor-pointer;
+}

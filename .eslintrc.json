@@ -13,7 +13,7 @@
     "parser": "@typescript-eslint/parser",
     "plugins": ["react-refresh"],
     "rules": {
-        "max-lines": ["warn", { "max": 90, "skipComments": true, "skipBlankLines": true }],
+        "max-lines": ["warn", { "max": 110, "skipComments": true, "skipBlankLines": true }],
         "prettier/prettier": [
             "warn",
             {

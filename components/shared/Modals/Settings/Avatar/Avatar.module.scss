@@ -1,0 +1,45 @@
+@import 'styles/mixins';
+
+.avatarWrapper {
+    @apply mb-10;
+}
+
+.imageWrapper {
+    @apply relative mx-auto mb-3 flex h-[75px] w-[75px] items-center justify-center overflow-hidden rounded-full bg-gray;
+
+    @include media-rules(tablet) {
+        @apply h-[100px] w-[100px];
+    }
+}
+
+.userIcon {
+    @apply h-10 w-10 fill-secondary;
+
+    @include media-rules(tablet) {
+        @apply h-11 w-11;
+    }
+}
+
+.image {
+    @apply h-full w-full object-cover;
+}
+
+.uploadButton {
+    @apply mx-auto flex items-center gap-2;
+}
+
+.uploadIcon {
+    @apply h-[1.125rem] w-[1.125rem] fill-none stroke-secondary;
+
+    @include media-rules(tablet) {
+        @apply h-5 w-5;
+    }
+}
+
+.uploadText {
+    @apply leading-[1.29] tracking-tight text-secondary;
+
+    @include media-rules(tablet) {
+        @apply text-base leading-normal;
+    }
+}

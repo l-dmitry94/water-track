@@ -1,0 +1,61 @@
+@import 'styles/mixins';
+
+.list {
+    @apply mb-[0.875rem] flex flex-col gap-3;
+
+    @include media-rules(tablet) {
+        @apply flex-row gap-7;
+    }
+}
+
+.listItem {
+    @apply flex flex-col gap-1;
+}
+
+.label {
+    @apply leading-[1.29] tracking-tight text-secondary;
+
+    @include media-rules(tablet) {
+        @apply text-base leading-normal;
+    }
+}
+
+.value {
+    @apply font-bold leading-[1.29] tracking-tight text-green;
+
+    @include media-rules(tablet) {
+        @apply text-base leading-normal;
+    }
+}
+
+.description {
+    @apply mb-[0.875rem] rounded-15 border border-secondary/15 p-4 leading-[1.29] tracking-tight text-secondary/60;
+
+    @include media-rules(tablet) {
+        @apply text-base leading-normal;
+    }
+
+    & .asterisk {
+        @apply text-green;
+    }
+}
+
+.warning {
+    @apply flex items-center gap-1;
+}
+
+.exclamationIcon {
+    @apply h-[1.125rem] w-[1.125rem] fill-green;
+
+    @include media-rules(tablet) {
+        @apply h-[1.375rem] w-[1.375rem];
+    }
+}
+
+.exclamationText {
+    @apply leading-[1.29] tracking-tight text-secondary;
+
+    @include media-rules(tablet) {
+        @apply text-base leading-normal;
+    }
+}

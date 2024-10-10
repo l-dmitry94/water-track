@@ -1,0 +1,39 @@
+@import 'styles/mixins';
+
+.wrapper {
+    @apply mb-6;
+}
+
+.radioGroup {
+    @apply flex items-center gap-5;
+}
+
+.radioHidden {
+    @apply absolute -m-[1px] h-[1px] w-[1px] overflow-hidden whitespace-nowrap border-0 p-0;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+
+    &:checked + .label .circle {
+        @apply scale-100;
+    }
+}
+
+.label {
+    @apply flex cursor-pointer items-center gap-3;
+}
+
+.radio {
+    @apply flex h-5 w-5 flex-shrink items-center justify-center rounded-full border-2 border-green;
+}
+
+.gender {
+    @apply leading-[1.29] tracking-tight text-secondary;
+
+    @include media-rules(tablet) {
+        @apply text-base leading-normal;
+    }
+}
+
+.circle {
+    @apply h-2 w-2 scale-0 rounded-full bg-green transition-transform duration-150 ease-linear;
+}

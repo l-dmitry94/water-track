@@ -1,9 +1,8 @@
 'use client';
 
+import Skeleton from 'react-loading-skeleton';
 import { useSession } from 'next-auth/react';
 import scss from './DailyNorma.module.scss';
-import convertMillilitersToLiters from '@/helpers/convertMillilitersToLiters';
-import Skeleton from 'react-loading-skeleton';
 
 const DailyNorma = () => {
     const { data: session } = useSession();
@@ -12,7 +11,7 @@ const DailyNorma = () => {
         <section className={scss.dailyNorma}>
             <p className={scss.norma}>
                 {session ? (
-                    <>{`${convertMillilitersToLiters(session?.user?.volume)} L`}</>
+                    `${session?.user?.volume / 1000} L`
                 ) : (
                     <Skeleton containerClassName={scss.normaSkeleton} />
                 )}

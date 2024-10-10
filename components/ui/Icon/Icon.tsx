@@ -19,7 +19,8 @@ type IconVariant =
     | 'user'
     | 'water-glass'
     | 'chevron-left'
-    | 'chevron-right';
+    | 'chevron-right'
+    | 'exclamation';
 
 interface IIcon {
     variant: IconVariant;

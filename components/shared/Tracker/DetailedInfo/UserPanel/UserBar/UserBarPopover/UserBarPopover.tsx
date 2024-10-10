@@ -4,13 +4,15 @@ import Icon from '@/components/ui/Icon';
 import scss from './UserBarPopover.module.scss';
 import Modal from '@/components/ui/Modal';
 import Logout from '@/components/shared/Modals/Logout';
+import Settings from '@/components/shared/Modals/Settings';
 
 interface IUserBarPopover {
     isOpen: boolean;
     onClose: () => void;
 }
 const UserBarPopover: FC<IUserBarPopover> = ({ isOpen, onClose }) => {
-    const [isLogoutModalIsOpen, setIsLogoutModalIsOpen] = useState(false);
+    const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
+    const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
 
     useEffect(() => {
         const handleClickByOutside = (event: MouseEvent) => {
@@ -33,23 +35,32 @@ const UserBarPopover: FC<IUserBarPopover> = ({ isOpen, onClose }) => {
     return (
         <>
             <div className={clsx(scss.userBarPopover, isOpen && scss.open)}>
-                <button className={scss.button}>
+                <button onClick={() => setIsSettingsModalOpen(true)} className={scss.button}>
                     <Icon variant="settings" className={scss.popoverIcon} />
                     <p className={scss.popoverItemText}>Settings</p>
                 </button>
-                <button onClick={() => setIsLogoutModalIsOpen(true)} className={scss.button}>
+                <button onClick={() => setIsLogoutModalOpen(true)} className={scss.button}>
                     <Icon variant="log-out" className={clsx(scss.popoverIcon, scss.logoutIcon)} />
                     <p className={clsx(scss.popoverItemText, scss.logoutText)}>Log out</p>
                 </button>
             </div>
 
             <Modal
-                isOpen={isLogoutModalIsOpen}
-                onClose={() => setIsLogoutModalIsOpen(false)}
+                isOpen={isLogoutModalOpen}
+                onClose={() => setIsLogoutModalOpen(false)}
                 title="Log out"
                 positionTitle="center"
             >
-                <Logout onClose={() => setIsLogoutModalIsOpen(false)} />
+                <Logout onClose={() => setIsLogoutModalOpen(false)} />
+            </Modal>
+
+            <Modal
+                isOpen={isSettingsModalOpen}
+                onClose={() => setIsSettingsModalOpen(false)}
+                title="Settings"
+                profile
+            >
+                <Settings onClose={() => setIsSettingsModalOpen(false)} />
             </Modal>
         </>
     );
