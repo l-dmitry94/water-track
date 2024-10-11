@@ -1,0 +1,7 @@
+.wrapper {
+    @apply absolute left-1/2 -translate-x-1/2;
+}
+
+.label {
+    @apply py-[10px] px-4 bg-white shadow-[0_5px_10px_0_rgba(203,209,223,0.5)] rounded-15 font-bold text-xs leading-[1.87];
+}

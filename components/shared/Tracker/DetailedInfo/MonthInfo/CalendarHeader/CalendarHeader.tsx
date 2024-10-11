@@ -6,9 +6,16 @@ import scss from './CalendarHeader.module.scss';
 interface ICalendarHeader {
     currentDate: Date;
     setDate: Dispatch<SetStateAction<Date>>;
+    onShowStatistic: () => void;
+    isShowStatistic: boolean;
 }
 
-const CalendarHeader: FC<ICalendarHeader> = ({ currentDate, setDate }) => {
+const CalendarHeader: FC<ICalendarHeader> = ({
+    currentDate,
+    setDate,
+    onShowStatistic,
+    isShowStatistic,
+}) => {
     const formattedDate = format(currentDate, 'MMMM, yyyy');
 
     const handleNextMonth = () => {
@@ -21,7 +28,7 @@ const CalendarHeader: FC<ICalendarHeader> = ({ currentDate, setDate }) => {
 
     return (
         <section className={scss.calendarHeader}>
-            <h2 className={scss.title}>Month</h2>
+            <h2 className={scss.title}>{isShowStatistic ? 'Statistics' : 'Month'}</h2>
 
             <div className={scss.wrapper}>
                 <div className={scss.date}>
@@ -34,7 +41,7 @@ const CalendarHeader: FC<ICalendarHeader> = ({ currentDate, setDate }) => {
                     </button>
                 </div>
 
-                <button className={scss.statisticButton}>
+                <button onClick={onShowStatistic} className={scss.statisticButton}>
                     <Icon variant="pie-chart" className={scss.statisticIcon} />
                 </button>
             </div>
