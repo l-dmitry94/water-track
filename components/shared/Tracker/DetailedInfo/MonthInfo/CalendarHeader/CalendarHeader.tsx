@@ -2,6 +2,7 @@ import { Dispatch, FC, SetStateAction } from 'react';
 import { format, addMonths, subMonths } from 'date-fns';
 import Icon from '@/components/ui/Icon';
 import scss from './CalendarHeader.module.scss';
+import Link from 'next/link';
 
 interface ICalendarHeader {
     currentDate: Date;
@@ -31,6 +32,8 @@ const CalendarHeader: FC<ICalendarHeader> = ({
             <h2 className={scss.title}>{isShowStatistic ? 'Statistics' : 'Month'}</h2>
 
             <div className={scss.wrapper}>
+                <Link href={`/tracker/${format(new Date(), 'yyyy-MM-dd')}`} className={scss.today}>Today</Link>
+
                 <div className={scss.date}>
                     <button className={scss.arrowButton} onClick={handlePrevMonth}>
                         <Icon variant="chevron-left" className={scss.arrowIcon} />

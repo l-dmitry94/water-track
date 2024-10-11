@@ -24,6 +24,18 @@
     }
 }
 
+.today {
+    @apply hidden;
+
+    @include media-rules(tablet) {
+        @apply block text-base leading-[1.29] tracking-tight transition-colors duration-150 ease-linear;
+
+        &:hover {
+            @apply text-green;
+        }
+    }
+}
+
 .date {
     @apply flex items-center gap-1;
 
@@ -45,9 +57,9 @@
 }
 
 .dateText {
-    @apply font-bold leading-[1.29] tracking-tight text-center w-[120px];
+    @apply w-[120px] text-center font-bold leading-[1.29] tracking-tight;
 
     @include media-rules(tablet) {
-        @apply text-base leading-[1.5] w-[137px];
+        @apply w-[137px] text-base leading-[1.5];
     }
 }
