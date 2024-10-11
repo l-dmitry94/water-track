@@ -32,7 +32,9 @@ const CalendarHeader: FC<ICalendarHeader> = ({
             <h2 className={scss.title}>{isShowStatistic ? 'Statistics' : 'Month'}</h2>
 
             <div className={scss.wrapper}>
-                <Link href={`/tracker/${format(new Date(), 'yyyy-MM-dd')}`} className={scss.today}>Today</Link>
+                <Link href={`/tracker/${format(new Date(), 'yyyy-MM-dd')}`} className={scss.today}>
+                    Today
+                </Link>
 
                 <div className={scss.date}>
                     <button className={scss.arrowButton} onClick={handlePrevMonth}>
