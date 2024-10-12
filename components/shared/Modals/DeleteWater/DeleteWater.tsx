@@ -11,6 +11,7 @@ const DeleteWater: FC<IAddEditDeleteWater> = ({ water, currentDate, onClose }) =
     const [isLoading, setIsLoading] = useState(false);
     const deleteWater = useWaters((state) => state.deleteWater);
     const getMonthlyWaters = useWaters((state) => state.getMonthlyWaters);
+    const getWeeklyWaters = useWaters((state) => state.getWeeklyWaters);
     const error = useWaters((state) => state.error);
 
     const handleDeleteWater = async () => {
@@ -27,6 +28,7 @@ const DeleteWater: FC<IAddEditDeleteWater> = ({ water, currentDate, onClose }) =
             onClose();
 
             await getMonthlyWaters(format(currentDate!, 'yyyy-MM-dd'));
+            await getWeeklyWaters(format(currentDate!, 'yyyy-MM-dd'));
 
             toast.success('Water deleted successfully');
         }

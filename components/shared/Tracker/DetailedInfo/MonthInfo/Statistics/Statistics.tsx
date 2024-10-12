@@ -1,22 +1,24 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { format } from 'date-fns';
 import { ICalendar } from '../Calendar';
 import CustomTooltip from './CustomTooltip';
+import useWaters from '@/store/useWaters';
 import scss from './Statistics.module.scss';
 
 const Statistics: FC<ICalendar> = ({ currentDate }) => {
-    console.log(currentDate);
-    const data = [
-        { name: -100, pv: 0 },
-        { name: 16, pv: 2200 },
-        { name: 17, pv: 1800 },
-        { name: 18, pv: 2500 },
-        { name: 19, pv: 1750 },
-        { name: 20, pv: 2340 },
-        { name: 21, pv: 2400 },
-        { name: 22, pv: 1600 },
-        { name: 100, pv: 0 },
-    ];
+    const { weeklyWaters, getWeeklyWaters } = useWaters();
+
+    useEffect(() => {
+        getWeeklyWaters(format(currentDate, 'yyyy-MM-dd'));
+    }, [currentDate, getWeeklyWaters]);
+
+    const formattedWeeklyWaters = weeklyWaters.map(({ date, volume }) => ({
+        date: Number(format(new Date(date!), 'dd')),
+        volume,
+    }));
+
+    const data = [{ date: -100, volume: 0 }, ...formattedWeeklyWaters, { date: 100, volume: 0 }];
 
     return (
         <div className={scss.statistics}>
@@ -31,23 +33,26 @@ const Statistics: FC<ICalendar> = ({ currentDate }) => {
                     <XAxis
                         type="number"
                         tickCount={7}
-                        domain={[data[1].name - 1, data[7].name + 1]}
-                        dataKey="name"
+                        domain={[
+                            data.length > 1 ? data[1].date - 1 : 0,
+                            data.length > 7 ? data[7].date + 1 : data[data.length - 2].date + 1,
+                        ]}
+                        dataKey="date"
                         tickSize={0}
                         tickMargin={20}
                         tick={{ fontSize: 15, color: '#323f47' }}
                         axisLine={false}
                         allowDataOverflow
-                        ticks={data.slice(0, -1).map((item) => item.name)}
+                        ticks={data.slice(0, -1).map((item) => item.date)}
                     />
                     <YAxis
                         type="number"
                         tickCount={6}
-                        dataKey="pv"
+                        dataKey="volume"
                         domain={[0, 'dataMax']}
                         minTickGap={17}
                         tickSize={0}
-                        tickFormatter={(v) => `${v / 1000} L`}
+                        tickFormatter={(v) => `${Number((v / 1000).toFixed(1))} L`}
                         tick={{ fontSize: 15, color: '#323f47' }}
                         tickMargin={20}
                         axisLine={false}
@@ -61,7 +66,7 @@ const Statistics: FC<ICalendar> = ({ currentDate }) => {
                     />
                     <Area
                         type="linear"
-                        dataKey="pv"
+                        dataKey="volume"
                         stroke="#87d28d"
                         strokeWidth={3}
                         fillOpacity={1}

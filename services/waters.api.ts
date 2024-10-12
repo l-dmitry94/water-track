@@ -18,6 +18,10 @@ export const getDailyWaters = async (date: string) => {
     return await instance.get(`${ENDPOINTS.waters.daily}/${date}`);
 };
 
+export const getWeeklyWaters = async (date: string) => {
+    return await instance.get(`${ENDPOINTS.waters.weekly}/${date}`);
+};
+
 export const getMonthlyWaters = async (date: string) => {
     return await instance.get(`${ENDPOINTS.waters.monthly}/${date}`);
 };

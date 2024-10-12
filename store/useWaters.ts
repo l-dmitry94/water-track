@@ -5,6 +5,7 @@ import {
     deleteWater,
     getDailyWaters,
     getMonthlyWaters,
+    getWeeklyWaters,
     updateWater,
 } from '@/services/waters.api';
 import { IUseWaters } from '@/types/waters.types';
@@ -12,6 +13,7 @@ import { IUseWaters } from '@/types/waters.types';
 const useWaters = create<IUseWaters>()(
     devtools((set) => ({
         waters: [],
+        weeklyWaters: [],
         monthlyWaters: [],
         isLoading: true,
         error: null,
@@ -59,6 +61,18 @@ const useWaters = create<IUseWaters>()(
                 set({ isLoading: true, error: null });
                 const response = await getDailyWaters(date);
                 set({ waters: response.data });
+            } catch (error: any) {
+                set({ error: error?.response?.data?.message || 'An error occurred' });
+            } finally {
+                set({ isLoading: false });
+            }
+        },
+
+        getWeeklyWaters: async (date) => {
+            try {
+                set({ isLoading: true, error: null });
+                const response = await getWeeklyWaters(date);
+                set({ weeklyWaters: response.data });
             } catch (error: any) {
                 set({ error: error?.response?.data?.message || 'An error occurred' });
             } finally {

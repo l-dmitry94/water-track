@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import { endOfWeek, startOfWeek } from 'date-fns';
+import { eachDayOfInterval, endOfWeek, startOfWeek } from 'date-fns';
 import authOptions from '@/configs/next-auth';
 import prisma from '@/configs/prisma';
 
@@ -27,7 +27,22 @@ export const GET = async (req: NextRequest, { params }: { params: { date: string
             },
         });
 
-        return NextResponse.json(weeklyWaters, { status: 200 });
+        const weekDates = eachDayOfInterval({ start: new Date(startDate), end: new Date(endDate) });
+
+        const result = weekDates.map((day) => {
+            const dailyWaterEntries = weeklyWaters.filter(
+                (water) => new Date(water.date).toDateString() === day.toDateString()
+            );
+
+            const totalVolume = dailyWaterEntries.reduce((total, entry) => total + entry.volume, 0);
+
+            return {
+                volume: totalVolume,
+                date: day.toISOString(),
+            };
+        });
+
+        return NextResponse.json(result, { status: 200 });
     } catch (error) {
         return NextResponse.json({ message: (error as Error).message }, { status: 500 });
     }
