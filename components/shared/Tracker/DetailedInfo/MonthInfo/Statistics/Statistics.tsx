@@ -18,7 +18,7 @@ const Statistics: FC<ICalendar> = ({ currentDate }) => {
         volume,
     }));
 
-    const data = [{ date: -100, volume: 0 }, ...formattedWeeklyWaters, { date: 100, volume: 0 }];
+    const data = [...formattedWeeklyWaters];
 
     return (
         <div className={scss.statistics}>
@@ -31,19 +31,12 @@ const Statistics: FC<ICalendar> = ({ currentDate }) => {
                         </linearGradient>
                     </defs>
                     <XAxis
-                        type="number"
                         tickCount={7}
-                        domain={[
-                            data.length > 1 ? data[1].date - 1 : 0,
-                            data.length > 7 ? data[7].date + 1 : data[data.length - 2].date + 1,
-                        ]}
                         dataKey="date"
                         tickSize={0}
                         tickMargin={20}
                         tick={{ fontSize: 15, color: '#323f47' }}
                         axisLine={false}
-                        allowDataOverflow
-                        ticks={data.slice(0, -1).map((item) => item.date)}
                     />
                     <YAxis
                         type="number"
